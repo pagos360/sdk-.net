@@ -7,16 +7,16 @@ Modulo para conexión con Pagos360.com
   + [Introducción](#introduccion)
 	+ [Alcance](#alcance)
   + [Instalación](#instalacion)
+	+ Descripci&oacute;n de Libreria](#doc)
     + [Versiones de .Net soportadas](#versionesdenetsoportadas)
-	+ [Manual de Integración](#manualintegracion)
-	+ [Ambientes](#test)
+	+ [Documentacion para Integraci&oacute;n](#apiparadesarrolladores)
    
 <a name="introduccion"></a>
 
 ## Introducción
 A contiunuaci&oacute;n se detalla el Flujo de una transacci&oacute;n a trav&eacute;s de Pagos360.com
 
-![imagen de sdks](Docs/img/Descripcion_Proceso_de_Pago_Online.png)</br>
+![imagen de sdks](./Docs/Descripcion_Proceso_de_Pago_Online.png)</br>
 
 <a name="alcance"></a>
 
@@ -37,7 +37,7 @@ using Pagos360ApiClientLibrary.Services;
 ```
 
 <a name="descripcion"></a>
-## Descripci&oacute;n de Libreria
+### Descripci&oacute;n de Libreria
 - Model: Contiene la estructuras de entidades necesarias para mapear las Request y las Response de la API de Pagos360.com.
 - Properties: Informaci&oacute;n de la versi&oacute;n del SDK .net.
 - Resources: Contiene las funciones para interactuar con la API de Pagos360.com.
@@ -48,7 +48,6 @@ using Pagos360ApiClientLibrary.Services;
 La versi&oacute;n implementada de la SDK, esta testeada para versiones desde .net 3.5
 
 <a name="apiparadesarrolladores"></a>
-
 ### Documentacion para Integraci&oacute;n
 
 Se encuentra disponible la documentaci&oacute;n para integradores en **[API para desarrolladores](https://ayuda.pagos360.com/v2/reference).
