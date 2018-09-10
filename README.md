@@ -16,7 +16,7 @@ Modulo para conexión con Pagos360.com
 ## Introducción
 A contiunuaci&oacute;n se detalla el Flujo de una transacci&oacute;n a trav&eacute;s de Pagos360.com
 
-![imagen de sdks](./Docs/img/Descripcion_Proceso_de_Pago_Online.png)</br>
+![imagen de sdks](Docs/img/Descripcion_Proceso_de_Pago_Online.png)</br>
 
 <a name="alcance"></a>
 
