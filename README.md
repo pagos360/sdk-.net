@@ -7,7 +7,7 @@ Modulo para conexión con Pagos360.com
   + [Introducción](#introduccion)
 	+ [Alcance](#alcance)
   + [Instalación](#instalacion)
-	+ [Descripci&oacute;n de Libreria](#doc)
+	+ [Descripci&oacute;n de Libreria](#descripcion)
     + [Versiones de .Net soportadas](#versionesdenetsoportadas)
 	+ [Documentacion para Integraci&oacute;n](#apiparadesarrolladores)
    
