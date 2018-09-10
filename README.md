@@ -1,7 +1,6 @@
 <a name="inicio"></a>
 # sdk-.net
 SDK para realizar transacciones por medio de Pagos360.com 
-===============
 
 Modulo para conexión con Pagos360.com
 
