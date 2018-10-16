@@ -32,6 +32,18 @@ namespace Pagos360ApiClientLibrary.Model
         [DataMember(Name = "payer_email")]
         public string PayerEmail { get; set; }
 
+        [DataMember(Name = "back_url_success", EmitDefaultValue = false)]
+        public string BackUrlSuccess { get; set; }
+
+        [DataMember(Name = "back_url_pending", EmitDefaultValue = false)]
+        public string BackUrlPending { get; set; }
+
+        [DataMember(Name = "metadata", EmitDefaultValue = false)]
+        public string Metadata { get; set; }
+
+        [DataMember(Name = "excluded_channels", EmitDefaultValue = false)]
+        public string ExcludedChannels { get; set; }
+        
         [DataMember(Name = "first_due_date")]
         public string FirstDueDate { get; set; }
 

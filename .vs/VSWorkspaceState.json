@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Docs",
+    "\\Pagos360ApiClientLibrary",
+    "\\Pagos360ApiClientLibrary\\Model",
+    "\\Pagos360ApiClientLibrary\\Properties",
+    "\\Pagos360ApiClientLibrary\\Resources",
+    "\\Pagos360ApiClientLibrary\\Services"
+  ],
+  "SelectedNode": "\\Pagos360ApiClientLibrary\\Model\\PaymentRequest.cs",
+  "PreviewInSolutionExplorer": false
+}

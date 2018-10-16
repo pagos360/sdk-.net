@@ -113,26 +113,7 @@ namespace Pagos360ApiClientLibrary.Services
                 return responseObjets;
             }
         }
-
-        public static Account GetAccount(string pPath, string pAPIKey)
-        {
-            using (HttpClient client = new HttpClient())
-            {
-                var serializer = new DataContractJsonSerializer(typeof(Account));
-
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", pAPIKey);
-
-                var response = client.GetAsync(pPath).Result;
-                var streamTask = response.Content.ReadAsStreamAsync().Result;
-
-                var responseObjets = serializer.ReadObject(streamTask) as Account;
-                return responseObjets;
-            }
-        }
-
+        
         public static string GetFirstDudeDate<T>(string pPath, string pAPIKey, string rootName, T pObject) where T : class
         {
             using (HttpClient client = new HttpClient())
