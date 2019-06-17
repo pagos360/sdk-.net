@@ -48,8 +48,5 @@ namespace Pagos360ApiClientLibrary.Model
 
         [DataMember(Name = "external_reference")]
         public string ExternalReference { get; set; }
-
-        [DataMember(Name = "bank_account", EmitDefaultValue = false)]
-        public BankAccount BankAccount { get; set; }
     }
 }
