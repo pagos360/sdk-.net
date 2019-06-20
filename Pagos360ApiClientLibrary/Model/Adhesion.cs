@@ -13,9 +13,15 @@ namespace Pagos360ApiClientLibrary.Model
         [DataMember(Name = "state", EmitDefaultValue = false)]
         public string State { get; set; }
 
+        [DataMember(Name = "state_comment", EmitDefaultValue = false)]
+        public string StateComment { get; set; }
+
         [DataMember(Name = "created_at", EmitDefaultValue = false)]
         public string CreatedAt { get; set; }
-        
+
+        [DataMember(Name = "canceled_at", EmitDefaultValue = false)]
+        public string CanceledAt { get; set; }
+
         [DataMember(Name = "adhesion_holder_name")]
         public string AdhesionHolderName { get; set; }
         
