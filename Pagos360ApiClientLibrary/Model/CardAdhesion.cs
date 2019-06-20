@@ -13,12 +13,6 @@ namespace Pagos360ApiClientLibrary.Model
         [DataMember(Name = "adhesion_holder_name")]
         public string AdhesionHolderName { get; set; }
 
-        [DataMember(Name = "email")]
-        public string Email { get; set; }
-
-        [DataMember(Name = "external_reference")]
-        public string ExternalReference { get; set; }
-
         [DataMember(Name = "card_holder_name")]
         public string CardHolderName { get; set; }
 
@@ -27,5 +21,11 @@ namespace Pagos360ApiClientLibrary.Model
 
         [DataMember(Name = "description")]
         public string Description { get; set; }
+
+        [DataMember(Name = "email")]
+        public string Email { get; set; }
+
+        [DataMember(Name = "external_reference")]
+        public string ExternalReference { get; set; }
     }
 }

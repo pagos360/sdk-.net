@@ -31,16 +31,16 @@ namespace Pagos360ApiClientLibrary.Model
         [DataMember(Name = "cbu_number")]
         public string CbuNumber { get; set; }
 
+        [DataMember(Name = "description")]
+        public string Description { get; set; }
+
+        [DataMember(Name = "short_description")]
+        public string ShortDescription { get; set; }
+
         [DataMember(Name = "email")]
         public string Email { get; set; }
 
         [DataMember(Name = "external_reference")]
         public string ExternalReference { get; set; }
-
-        [DataMember(Name = "item", EmitDefaultValue = false)]
-        public Item Item { get; set; }
-
-        [DataMember(Name = "item_id")]
-        public int ItemId { get; set; }
     }
 }
