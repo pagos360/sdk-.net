@@ -23,6 +23,11 @@ namespace Pagos360ApiClientLibrary.Resources
             return ApiRestServices.CreateObject<CardDebitRequest>(pPath + "/card-debit-request", pAPIKey, "card_debit_request", pDebitRequest);
         }
 
+        public static CardDebitRequest GetCardDebitRequest(string pPath, string pAPIKey, int pId)
+        {
+            return ApiRestServices.GetObject<CardDebitRequest>(pPath + "/card-debit-request", pAPIKey, pId);
+        }
+
         public static CardDebitRequest CancelDebitRequest(string pPath, string pAPIKey, int pId)
         {
             return ApiRestServices.CancelObject<CardDebitRequest>(pPath + "/card-debit-request", pAPIKey, pId);
