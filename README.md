@@ -50,6 +50,6 @@ La versi&oacute;n implementada de la SDK, esta testeada para versiones desde .ne
 <a name="apiparadesarrolladores"></a>
 ### Documentacion para Integraci&oacute;n
 
-Se encuentra disponible la documentaci&oacute;n para integradores en [API para desarrolladores](https://ayuda.pagos360.com/v2/reference).
+Se encuentra disponible la documentaci&oacute;n para integradores en [API para desarrolladores](https://developers.pagos360.com/).
 
 [<sub>Volver a inicio</sub>](#inicio)
