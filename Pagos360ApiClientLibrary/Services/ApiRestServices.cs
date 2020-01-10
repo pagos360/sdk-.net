@@ -24,10 +24,18 @@ namespace Pagos360ApiClientLibrary.Services
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", pAPIKey);
                 
                 var response = client.GetAsync(pPath).Result;
-                var streamTask = response.Content.ReadAsStreamAsync().Result;
 
-                var responseObjets = serializer.ReadObject(streamTask) as PaginationResult<T>;
-                return responseObjets;
+                if (response.IsSuccessStatusCode)
+                {
+                    var streamTask = response.Content.ReadAsStreamAsync().Result;
+                    var responseObjets = serializer.ReadObject(streamTask) as PaginationResult<T>;
+                    return responseObjets;
+                }
+                else
+                {
+                    string message = GetErrorMessage(response);
+                    throw new ApplicationException(message);
+                }
             }
         }
 
@@ -50,10 +58,18 @@ namespace Pagos360ApiClientLibrary.Services
                 var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
 
                 var response = client.PostAsync(pPath, httpContent).Result;
-                var streamTask = response.Content.ReadAsStreamAsync().Result;
-
-                var  responseObjet = serializer.ReadObject(streamTask) as T;
-                return responseObjet;
+                
+                if (response.IsSuccessStatusCode)
+                {
+                    var streamTask = response.Content.ReadAsStreamAsync().Result;
+                    var responseObjet = serializer.ReadObject(streamTask) as T;
+                    return responseObjet;
+                }
+                else
+                {
+                    string message = GetErrorMessage(response);
+                    throw new ApplicationException(message);
+                }
             }
         }
 
@@ -69,10 +85,18 @@ namespace Pagos360ApiClientLibrary.Services
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", pAPIKey);
 
                 var response = client.GetAsync(pPath + "/" + pId).Result;
-                var streamTask = response.Content.ReadAsStreamAsync().Result;
 
-                var responseObjets = serializer.ReadObject(streamTask) as T;
-                return responseObjets;
+                if (response.IsSuccessStatusCode)
+                {
+                    var streamTask = response.Content.ReadAsStreamAsync().Result;
+                    var responseObjets = serializer.ReadObject(streamTask) as T;
+                    return responseObjets;
+                }
+                else
+                {
+                    string message = GetErrorMessage(response);
+                    throw new ApplicationException(message);
+                }
             }
         }
 
@@ -88,10 +112,18 @@ namespace Pagos360ApiClientLibrary.Services
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", pAPIKey);
 
                 var response = client.DeleteAsync(pPath + "/" + pId).Result;
-                var streamTask = response.Content.ReadAsStreamAsync().Result;
 
-                var responseObjets = serializer.ReadObject(streamTask) as T;
-                return responseObjets;
+                if (response.IsSuccessStatusCode)
+                {
+                    var streamTask = response.Content.ReadAsStreamAsync().Result;
+                    var responseObjet = serializer.ReadObject(streamTask) as T;
+                    return responseObjet;
+                }
+                else
+                {
+                    string message = GetErrorMessage(response);
+                    throw new ApplicationException(message);
+                }                
             }
         }
 
@@ -107,10 +139,17 @@ namespace Pagos360ApiClientLibrary.Services
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", pAPIKey);
 
                 var response = client.PutAsync(pPath + "/" + pId + "/cancel", null).Result;
-                var streamTask = response.Content.ReadAsStreamAsync().Result;
-
-                var responseObjets = serializer.ReadObject(streamTask) as T;
-                return responseObjets;
+                if (response.IsSuccessStatusCode)
+                {
+                    var streamTask = response.Content.ReadAsStreamAsync().Result;
+                    var responseObjet = serializer.ReadObject(streamTask) as T;
+                    return responseObjet;
+                }
+                else
+                {
+                    string message = GetErrorMessage(response);
+                    throw new ApplicationException(message);
+                }
             }
         }
         
@@ -135,6 +174,20 @@ namespace Pagos360ApiClientLibrary.Services
                 var response = client.PostAsync(pPath, httpContent).Result.Content.ReadAsStringAsync();
                 return response.Result;
             }
+        }
+
+        private string GetErrorMessage(var response)
+        {
+            string errorResult = response.Content.ReadAsStringAsync().Result;
+
+            String startString = "\"errors\":[";
+            String endString = "]";
+
+            int startIndex = errorResult.IndexOf(startString);
+            int endIndex = errorResult.IndexOf(endString);
+            string message = errorResult.Substring(startIndex + 11, endIndex - (startIndex + 11));
+
+            return message;
         }
     }
 }

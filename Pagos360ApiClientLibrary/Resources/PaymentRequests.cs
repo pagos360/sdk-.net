@@ -7,17 +7,35 @@ namespace Pagos360ApiClientLibrary.Resources
     {
         public static PaginationResult<PaymentRequest> ListPaymentRequests(string pPath, string pAPIKey)
         {
-            return ApiRestServices.ListObjects<PaymentRequest>(pPath + "/payment-request", pAPIKey);
+            try { 
+                return ApiRestServices.ListObjects<PaymentRequest>(pPath + "/payment-request", pAPIKey);
+            }
+            catch (ApplicationException ae)
+            {
+                throw new ApplicationException(ae.Message);
+            }
         }
 
         public static PaymentRequest CreatePaymentRequest(string pPath, string pAPIKey, PaymentRequest pPaymentRequest)
         {
-            return ApiRestServices.CreateObject<PaymentRequest>(pPath + "/payment-request", pAPIKey, "payment_request", pPaymentRequest);
+            try { 
+                return ApiRestServices.CreateObject<PaymentRequest>(pPath + "/payment-request", pAPIKey, "payment_request", pPaymentRequest);
+            }
+            catch (ApplicationException ae)
+            {
+                throw new ApplicationException(ae.Message);
+            }
         }
 
         public static PaymentRequest GetPaymentRequest(string pPath, string pAPIKey, int pPaymentId)
         {
-            return ApiRestServices.GetObject<PaymentRequest>(pPath + "/payment-request", pAPIKey, pPaymentId);
+            try { 
+                return ApiRestServices.GetObject<PaymentRequest>(pPath + "/payment-request", pAPIKey, pPaymentId);
+            }
+            catch (ApplicationException ae)
+            {
+                throw new ApplicationException(ae.Message);
+            }
         }
     }
 }

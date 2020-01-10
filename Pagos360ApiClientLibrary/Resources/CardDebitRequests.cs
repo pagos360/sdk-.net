@@ -10,27 +10,57 @@ namespace Pagos360ApiClientLibrary.Resources
     {
         public static PaginationResult<CardDebitRequest> ListDebitRequests(string pPath, string pAPIKey)
         {
-            return ApiRestServices.ListObjects<CardDebitRequest>(pPath + "/card-debit-request", pAPIKey);
+            try { 
+                return ApiRestServices.ListObjects<CardDebitRequest>(pPath + "/card-debit-request", pAPIKey);
+            }
+            catch (ApplicationException ae)
+            {
+                throw new ApplicationException(ae.Message);
+            }
         }
 
         public static PaginationResult<CardDebitRequest> ListDebitRequests(string pPath, string pAPIKey, string pExternalReference)
         {
-            return ApiRestServices.ListObjects<CardDebitRequest>(pPath + "/card-debit-request?external_reference=" + pExternalReference, pAPIKey);
+            try { 
+                return ApiRestServices.ListObjects<CardDebitRequest>(pPath + "/card-debit-request?external_reference=" + pExternalReference, pAPIKey);
+            }
+            catch (ApplicationException ae)
+            {
+                throw new ApplicationException(ae.Message);
+            }
         }
 
         public static CardDebitRequest CreateDebitRequest(string pPath, string pAPIKey, CardDebitRequest pDebitRequest)
         {
-            return ApiRestServices.CreateObject<CardDebitRequest>(pPath + "/card-debit-request", pAPIKey, "card_debit_request", pDebitRequest);
+            try { 
+                return ApiRestServices.CreateObject<CardDebitRequest>(pPath + "/card-debit-request", pAPIKey, "card_debit_request", pDebitRequest);
+            }
+            catch (ApplicationException ae)
+            {
+                throw new ApplicationException(ae.Message);
+            }
         }
 
         public static CardDebitRequest GetCardDebitRequest(string pPath, string pAPIKey, int pId)
         {
-            return ApiRestServices.GetObject<CardDebitRequest>(pPath + "/card-debit-request", pAPIKey, pId);
+            try { 
+                return ApiRestServices.GetObject<CardDebitRequest>(pPath + "/card-debit-request", pAPIKey, pId);
+            }
+            catch (ApplicationException ae)
+            {
+                throw new ApplicationException(ae.Message);
+            }
         }
 
         public static CardDebitRequest CancelDebitRequest(string pPath, string pAPIKey, int pId)
         {
-            return ApiRestServices.CancelObject<CardDebitRequest>(pPath + "/card-debit-request", pAPIKey, pId);
+            try { 
+                return ApiRestServices.CancelObject<CardDebitRequest>(pPath + "/card-debit-request", pAPIKey, pId);
+            }
+            catch (ApplicationException ae)
+            {
+                throw new ApplicationException(ae.Message);
+            }
         }
     }
 }
