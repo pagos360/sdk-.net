@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
+using Pagos360ApiClientLibrary.Model;
 
 namespace Pagos360ApiClientLibrary.Model
 {
@@ -9,6 +10,9 @@ namespace Pagos360ApiClientLibrary.Model
     public class CardDebitRequest
     {
         public CardDebitRequest() { }
+        
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        public int Id { get; set; }
 
         [DataMember(Name = "amount")]
         public double Amount { get; set; }
@@ -24,5 +28,27 @@ namespace Pagos360ApiClientLibrary.Model
 
         [DataMember(Name = "year")]
         public int Year { get; set; }
+
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public string Type { get; set; }
+
+        [DataMember(Name = "state", EmitDefaultValue = false)]
+        public string State { get; set; }
+
+        [DataMember(Name = "created_at", EmitDefaultValue = false)]
+        public string CreatedAt { get; set; }
+
+        [DataMember(Name = "card_adhesion", EmitDefaultValue = false)]
+        public CardAdhesion CardAdhesionObject { get; set; }
+
+        [DataMember(Name = "request_result", EmitDefaultValue = false)]
+        public RequestResult RequestResultObject { get; set; }
+
+        [DataMember(Name = "rejected_at", EmitDefaultValue = false)]
+        public string RejectedAt { get; set; }
+
+        [DataMember(Name = "state_comment", EmitDefaultValue = false)]
+        public string StateComment { get; set; }
+
     }
 }
