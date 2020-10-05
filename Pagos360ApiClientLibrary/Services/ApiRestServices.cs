@@ -176,7 +176,7 @@ namespace Pagos360ApiClientLibrary.Services
             }
         }
 
-        private string GetErrorMessage(var response)
+        private static string GetErrorMessage(HttpResponseMessage response)
         {
             string errorResult = response.Content.ReadAsStringAsync().Result;
 
