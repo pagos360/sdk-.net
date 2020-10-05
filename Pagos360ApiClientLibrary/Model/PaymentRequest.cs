@@ -73,5 +73,8 @@ namespace Pagos360ApiClientLibrary.Model
 
         [DataMember(Name = "request_result", EmitDefaultValue = false)]
         public List<RequestResult> RequestResult { get; set; }
+
+        [DataMember(Name = "items", EmitDefaultValue = false)]
+        public List<Items> Items { get; set; }
     }
 }
