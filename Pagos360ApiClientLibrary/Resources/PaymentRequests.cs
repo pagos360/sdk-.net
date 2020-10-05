@@ -1,4 +1,5 @@
-﻿using Pagos360ApiClientLibrary.Model;
+﻿using System;
+using Pagos360ApiClientLibrary.Model;
 using Pagos360ApiClientLibrary.Services;
 
 namespace Pagos360ApiClientLibrary.Resources
