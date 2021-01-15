@@ -76,5 +76,11 @@ namespace Pagos360ApiClientLibrary.Model
 
         [DataMember(Name = "items", EmitDefaultValue = false)]
         public List<Items> Items { get; set; }
+
+        [DataMember(Name = "transfer_to", EmitDefaultValue = false)]
+        public List<TransferTo> TransferTo { get; set; }
+
+        [DataMember(Name = "holder_data", EmitDefaultValue = false)]
+        public HolderData HolderData { get; set; }
     }
 }

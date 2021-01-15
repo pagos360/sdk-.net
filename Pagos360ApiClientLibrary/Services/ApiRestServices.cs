@@ -73,6 +73,42 @@ namespace Pagos360ApiClientLibrary.Services
             }
         }
 
+         public static T CreateObject<T>(string pPath, string pAPIKey, string? pConnectAccount, string rootName, T pObject) where T : class
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                MemoryStream streamObjet = new MemoryStream();
+                var serializer = new DataContractJsonSerializer(typeof(T));
+
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", pAPIKey);
+
+                if(pConnectAccount != null) client.DefaultRequestHeaders.Add("X-Connect-Account",pConnectAccount);
+
+                serializer.WriteObject(streamObjet, pObject);
+                streamObjet.Position = 0;
+                StreamReader sr = new StreamReader(streamObjet);
+                string json = "{ \"" + rootName + "\": " + sr.ReadToEnd() + "}";
+                var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var response = client.PostAsync(pPath, httpContent).Result;
+                
+                if (response.IsSuccessStatusCode)
+                {
+                    var streamTask = response.Content.ReadAsStreamAsync().Result;
+                    var responseObjet = serializer.ReadObject(streamTask) as T;
+                    return responseObjet;
+                }
+                else
+                {
+                    string message = GetErrorMessage(response);
+                    throw new ApplicationException(message);
+                }
+            }
+        }
+
         public static T GetObject<T>(string pPath, string pAPIKey, int pId) where T : class
         {
             using (HttpClient client = new HttpClient())

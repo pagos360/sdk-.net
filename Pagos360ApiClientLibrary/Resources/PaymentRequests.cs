@@ -17,10 +17,10 @@ namespace Pagos360ApiClientLibrary.Resources
             }
         }
 
-        public static PaymentRequest CreatePaymentRequest(string pPath, string pAPIKey, PaymentRequest pPaymentRequest)
+        public static PaymentRequest CreatePaymentRequest(string pPath, string pAPIKey, string? pConnectAccount, PaymentRequest pPaymentRequest)
         {
             try { 
-                return ApiRestServices.CreateObject<PaymentRequest>(pPath + "/payment-request", pAPIKey, "payment_request", pPaymentRequest);
+                return ApiRestServices.CreateObject<PaymentRequest>(pPath + "/payment-request", pAPIKey, pConnectAccount, "payment_request", pPaymentRequest);
             }
             catch (ApplicationException ae)
             {
